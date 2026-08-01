@@ -1,3 +1,18 @@
+
+##1 VPC
+##1 IGW
+##3 Public Subnets
+##3 Private Subnets
+##1 NAT Gateway
+##1 EIP
+##2 Route Tables
+##6 Route Associations
+
+
+
+
+
+
 resource "aws_vpc" "this" {
 
   cidr_block           = var.vpc_cidr
