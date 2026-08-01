@@ -3,25 +3,14 @@
 ##########################
 
 resource "aws_ecs_task_definition" "this" {
-
-
 family = var.service_name
-
-
 network_mode = "bridge"
-
-
 requires_compatibilities = [
 "EC2"
 ]
 
-
 cpu = var.cpu
-
-
 memory = var.memory
-
-
 
 container_definitions = jsonencode([
 
@@ -29,9 +18,7 @@ container_definitions = jsonencode([
 
 name = var.service_name
 
-
 image = var.container_image
-
 
 portMappings = [
 
@@ -60,27 +47,12 @@ hostPort = var.container_port
 
 resource "aws_ecs_service" "this" {
 
+  name = var.service_name
 
-name = var.service_name
+  cluster = var.cluster_id
 
+  task_definition = aws_ecs_task_definition.this.arn
 
-cluster = var.cluster_id
-
-
-task_definition =
-aws_ecs_task_definition.this.arn
-
-
-desired_count =
-var.desired_count
-
-
-
-deployment_minimum_healthy_percent = 50
-
-
-deployment_maximum_percent = 200
-
-
+  desired_count = var.desired_count
 
 }

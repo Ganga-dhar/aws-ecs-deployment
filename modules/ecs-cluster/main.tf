@@ -30,8 +30,7 @@ resource "aws_iam_role_policy_attachment" "ecs_instance" {
 
   role = aws_iam_role.ecs_instance.name
 
-  policy_arn =
-    "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
 
 }
 
@@ -102,9 +101,7 @@ EOF
 
 resource "aws_autoscaling_group" "ecs" {
 
-
   name = "${var.project_name}-ecs-asg"
-
 
   min_size = var.min_size
 
@@ -112,18 +109,9 @@ resource "aws_autoscaling_group" "ecs" {
 
   desired_capacity = var.desired_capacity
 
+  vpc_zone_identifier = var.private_subnet_ids
 
-  vpc_zone_identifier =
-    var.private_subnet_ids
-
-
-  launch_template {
-
-    id = aws_launch_template.ecs.id
-
-    version = "$Latest"
-
-  }
+}
 
 
 }
