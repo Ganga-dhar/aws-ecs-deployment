@@ -52,10 +52,7 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        run: terraform plan -var-file=backend/dev.tfvars -out=tfplan
-
-      - name: Terraform Show Plan
-        run: terraform show -no-color tfplan
+        run: terraform plan -var-file=backend/dev.tfvars
         
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
