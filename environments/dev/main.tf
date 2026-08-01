@@ -26,7 +26,7 @@ module "vpc" {
 
 module "ecs_cluster" {
 
-source = "../../modules/ec2-cluster"
+source = "../../modules/ecs-cluster"
 
 
 project_name = var.project_name
