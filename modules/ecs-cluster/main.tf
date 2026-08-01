@@ -112,6 +112,3 @@ resource "aws_autoscaling_group" "ecs" {
   vpc_zone_identifier = var.private_subnet_ids
 
 }
-
-
-}
