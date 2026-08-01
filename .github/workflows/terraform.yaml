@@ -51,12 +51,18 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
+      - name: Debug Terraform Files
+        run: |
+            pwd
+            ls -la
+            cat main.tf
+            ls -la ../../modules/vpc
       - name: Terraform Plan
         run: terraform plan -var-file=backend/dev.tfvars
-        
+
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
-        run: terraform apply tfplan
+        run: terraform apply
 
 
 
