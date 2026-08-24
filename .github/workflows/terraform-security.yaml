@@ -1,4 +1,4 @@
-name: Terraform Security
+name: Terraform Security- from reusable workflow
 
 on:
   push:
