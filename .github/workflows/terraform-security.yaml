@@ -12,7 +12,7 @@ on:
 jobs:
 
   terraform-security:
-    uses: Ganga-dhar/terraform-modules-tests/.github/workflows/terraform-security-reusable.yml@main
+    uses: Ganga-dhar/terraform-modules-tests/.github/workflows/terraform-security-reusable.yaml@main
     with:
       terraform-version: "1.15.1"
 
