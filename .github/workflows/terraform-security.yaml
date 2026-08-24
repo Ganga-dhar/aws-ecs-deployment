@@ -1,0 +1,20 @@
+name: Terraform Security
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  terraform-security:
+    uses: Ganga-dhar/terraform-modules-tests/.github/workflows/terraform-security-reusable.yml@main
+    with:
+      terraform-version: "1.15.1"
+
+    permissions:
+      contents: read
